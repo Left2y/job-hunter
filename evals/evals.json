@@ -1,0 +1,41 @@
+{
+  "skill_name": "job-hunter",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我找广州的 UI 设计工作，薪资 15-25K",
+      "expected_output": "使用 BOSS MCP 搜索岗位，返回岗位列表（公司/职位/薪资/匹配度）",
+      "files": [],
+      "expectations": [
+        "调用了 bosszp.search_jobs 或类似 BOSS API",
+        "返回了至少 3 个岗位",
+        "岗位包含公司名、职位、薪资信息",
+        "输出使用了结构化格式（表格或列表）"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "查一下多利购科技这家公司的风险",
+      "expected_output": "使用公司背调功能，搜索工商信息和风险信号",
+      "files": [],
+      "expectations": [
+        "调用了 ask-search 或类似搜索工具",
+        "提到了公司基本信息（成立时间/注册资本等）",
+        "检测了风险信号（劳动仲裁/欠薪/证监会警示等）",
+        "给出了综合风险等级和建议"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "给腾讯的 UI 设计师岗位发送招呼语",
+      "expected_output": "使用 BOSS MCP 发送打招呼消息",
+      "files": [],
+      "expectations": [
+        "调用了 bosszp.send_greeting 或类似 API",
+        "生成了个性化招呼语（包含技能和经验）",
+        "提供了招呼语预览或确认步骤",
+        "说明了发送结果或频率限制"
+      ]
+    }
+  ]
+}

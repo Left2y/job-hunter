@@ -1,0 +1,122 @@
+# ClawHub Skill 配置
+
+name: job-hunter
+version: 0.1.0
+description: 一站式求职助手 - 从岗位搜索→自动打招呼→面试→入职全流程支持
+author: Left2y
+license: MIT
+
+# 触发词（用于 OpenClaw 自动识别）
+triggers:
+  - 找工作
+  - 求职
+  - 面试
+  - BOSS 直聘
+  - 岗位推荐
+  - 简历匹配
+  - 公司背调
+  - 面试准备
+
+# 依赖
+dependencies:
+  - nodejs: ">=18.0.0"
+  - sqlite3: "*"
+  - mcporter: "*"
+
+# MCP 服务器配置
+mcp:
+  bosszp:
+    required: true
+    description: BOSS 直聘 MCP - 用于岗位搜索和自动打招呼
+    config: ~/.openclaw/workspace/config/mcporter.json
+
+# 入口文件
+main: src/boss-search.js
+
+# 可用命令
+commands:
+  - name: search
+    description: 搜索岗位
+    usage: node src/boss-search.js search <关键词> [城市] [薪资]
+    example: node src/boss-search.js search "UI 设计师" 广州 "15-25K"
+    
+  - name: greet
+    description: 发送招呼语
+    usage: node src/auto-greeting.js send <岗位 ID> [消息]
+    example: node src/auto-greeting.js send 123456 "您好，我对这个职位很感兴趣"
+    
+  - name: analyze
+    description: JD 匹配度分析
+    usage: node src/jd-analyzer.js analyze <JD 内容>
+    example: node src/jd-analyzer.js analyze "UI 设计师，要求 Figma"
+    
+  - name: check
+    description: 公司背调
+    usage: node src/company-check.js <公司名称>
+    example: node src/company-check.js "多利购科技"
+    
+  - name: prepare
+    description: 面试准备
+    usage: node src/interview-prep.js <公司> <职位>
+    example: node src/interview-prep.js "腾讯" "UI 设计师"
+    
+  - name: track
+    description: 进度管理
+    usage: node src/tracker.js <list|stats|add|update>
+    example: node src/tracker.js list
+
+# 文件结构
+files:
+  - SKILL.md
+  - README.md
+  - src/*.js
+  - data/.gitkeep
+
+# 安装后脚本
+postinstall: |
+  echo "✅ JobHunter 安装完成！"
+  echo ""
+  echo "下一步:"
+  echo "1. 检查 BOSS MCP: mcporter list | grep bosszp"
+  echo "2. 创建简历文件：~/.openclaw/workspace/resume.md"
+  echo "3. 测试搜索：node src/boss-search.js search \"UI 设计师\" 广州"
+  echo ""
+  echo "使用文档：https://github.com/Left2y/job-hunter"
+
+# 卸载前脚本
+preuninstall: |
+  echo "⚠️  注意：卸载将删除 SQLite 数据库（~/.openclaw/skills/job-hunter/data/applications.db）"
+  echo "如需保留数据，请先备份。"
+
+# 相关技能
+related:
+  - agent-reach
+  - resume-builder
+  - interview-coach
+
+# 标签
+tags:
+  - 求职
+  - 招聘
+  - BOSS 直聘
+  - 面试
+  - 简历
+  - 工具
+
+# 仓库信息
+repository:
+  type: git
+  url: https://github.com/Left2y/job-hunter.git
+  homepage: https://github.com/Left2y/job-hunter
+  bugs: https://github.com/Left2y/job-hunter/issues
+
+# 更新日志
+changelog: |
+  ## v0.1.0 (2026-03-11)
+  - ✨ 初始版本发布
+  - ✅ BOSS 直聘岗位搜索
+  - ✅ 自动打招呼
+  - ✅ JD 匹配度分析
+  - ✅ 公司背调（风险检测）
+  - ✅ 面试准备
+  - ✅ SQLite 进度追踪
