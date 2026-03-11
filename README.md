@@ -1,7 +1,6 @@
 # 🎯 JobHunter - 一站式求职助手
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-green.svg)](https://docs.openclaw.ai)
 
 > BOSS 直聘岗位搜索 + 公司背调 + 面试准备，基于 OpenClaw Skill
 
@@ -41,13 +40,7 @@
 
 ### 安装方式
 
-#### 方式 1: ClawHub（推荐）
-
-```bash
-clawhub install job-hunter
-```
-
-#### 方式 2: 源码安装
+#### 源码安装
 
 ```bash
 # 克隆仓库
@@ -211,7 +204,6 @@ MIT License - 详见 [LICENSE](LICENSE)
 ## 🔗 相关链接
 
 - **OpenClaw 文档**: https://docs.openclaw.ai
-- **ClawHub**: https://clawhub.com
 - **BOSS 直聘**: https://www.zhipin.com
 
 ---
