@@ -79,7 +79,7 @@ node src/boss-search.js detail <job_id>
 
 ```bash
 # 查询公司风险
-node src/company-check.js "多利购科技"
+node src/company-check.js "xx 科技"
 ```
 
 ### 自动打招呼
@@ -93,7 +93,7 @@ node src/auto-greeting.js send <job_id> "您好，我对这个职位很感兴趣
 
 ```bash
 # 准备面试
-node src/interview-prep.js "腾讯" "UI 设计师"
+node src/interview-prep.js "xx 公司" "UI 设计师"
 ```
 
 ---
@@ -172,7 +172,7 @@ export TAVILY_API_KEY="your_api_key"
 node src/boss-search.js search "UI 设计师" 广州
 
 # 公司背调测试
-node src/company-check.js "多利购科技"
+node src/company-check.js "xx 科技"
 
 # 打招呼测试
 node src/auto-greeting.js send 123456 "您好..."
